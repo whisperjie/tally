@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 import com.whisper.tally.data.dao.BillDao;
+import com.whisper.tally.data.dao.BillForListDao;
 import com.whisper.tally.data.dao.CategoryDao;
 import com.whisper.tally.data.entity.Bill;
 import com.whisper.tally.data.entity.Category;
@@ -30,4 +31,5 @@ public abstract class MyDataBase extends RoomDatabase {
     }
     public abstract CategoryDao getCategoryDao();
     public abstract BillDao getBillDao();
+    public abstract BillForListDao getBillForListDao();
 }

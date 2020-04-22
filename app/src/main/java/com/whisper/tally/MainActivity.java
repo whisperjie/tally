@@ -13,10 +13,18 @@ import android.widget.ImageButton;
 import com.whisper.tally.activity.CopyrightActivity;
 import com.whisper.tally.activity.InfoActivity;
 import com.whisper.tally.activity.SetActivity;
+import com.whisper.tally.activity.SortActivity;
 import com.whisper.tally.activity.bill.BillActivity;
 import com.whisper.tally.activity.bill.BillAddActivity;
+import com.whisper.tally.activity.bill.ShowActivity;
 import com.whisper.tally.user.UserData;
+import com.whisper.tally.viewmodel.BillViewModel;
 import com.whisper.tally.viewmodel.UserViewModel;
+
+/*
+
+livedata 怎么没用？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+ */
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button mBtnMoney,
@@ -28,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mBtnCopyright;
     UserData userData;
     UserViewModel userViewModel;
+    BillViewModel billViewModel;
     ImageButton mBtnSet;
 
     @Override
@@ -36,15 +45,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         findElement();
         setListener();
-        userData=new UserData(getApplicationContext());
-        userViewModel= ViewModelProviders.of(this).get(UserViewModel.class);
+        userData = new UserData(getApplicationContext());
+        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+        billViewModel = new BillViewModel(getApplication());
         mBtnInfo.setText(userViewModel.getName(userData).getValue());
         userViewModel.getName(userData).observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                mBtnInfo.setText(userViewModel.getName(userData).getValue());
+                mBtnInfo.setText(s);
+               // mBtnInfo.notifyAll();
             }
         });
+        billViewModel.getSum().observe(this, new Observer<Double>() {
+            @Override
+            public void onChanged(Double aDouble) {
+                mBtnMoney.setText("余额为：" + aDouble.toString());
+               // mBtnMoney.notifyAll();
+            }
+        });
+
     }
 
     private void setListener() {
@@ -53,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnInfo.setOnClickListener(this);
         mBtnAdd.setOnClickListener(this);
         mBtnMoney.setOnClickListener(this);
+        mBtnSort.setOnClickListener(this);
+       // mBtnIncome.setOnClickListener(this);
+      //  mBtnExpend.setOnClickListener(this);
     }
 
 
@@ -76,10 +98,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_all:
                 intent.setClass(MainActivity.this, BillActivity.class);
+                break;
+            case R.id.btn_sort:
+                intent.setClass(MainActivity.this, SortActivity.class);
+                break;
+           /* case R.id.btn_income:
+                intent.setClass(MainActivity.this, IncomeActivity.class);
+                break;*/
+           /* case R.id.btn_expend:
+                intent.setClass(MainActivity.this, ShowActivity.class);
+                break;*/
+            default:
+                break;
         }
         startActivity(intent);
 
     }
+
     private void findElement() {
         mBtnMoney = findViewById(R.id.btn_all);
         mBtnAdd = findViewById(R.id.btn_add);

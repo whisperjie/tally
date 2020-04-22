@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.bill.BillAddActivity">
-
+    tools:context=".activity.bill.BillDetialActivity">
 
     <Button
-        android:id="@+id/btn_add_bill"
+        android:id="@+id/btn_update_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@android:string/ok"
+        android:text="修改"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956" />
+        app:layout_constraintVertical_bias="0.944" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -64,7 +63,7 @@
         app:layout_constraintVertical_bias="0.553" />
 
     <Spinner
-        android:id="@+id/spinner_category"
+        android:id="@+id/spinner_category_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
@@ -92,7 +91,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
     <EditText
-        android:id="@+id/edt_money"
+        android:id="@+id/edt_money_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -125,7 +124,7 @@
 -->
 
     <Spinner
-        android:id="@+id/spinner_in_or_out"
+        android:id="@+id/spinner_in_or_out_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/out_or_in"
@@ -163,7 +162,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
     <EditText
-        android:id="@+id/edt_remark"
+        android:id="@+id/edt_remark_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -175,20 +174,20 @@
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
     <TextView
-        android:id="@+id/tev_show_date"
+        android:id="@+id/tev_show_date_detial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="28dp"
         android:text="未选择"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toTopOf="@+id/btn_show_datepicker" />
+        app:layout_constraintTop_toTopOf="@+id/guideline19"
+        app:layout_constraintVertical_bias="0.491" />
 
     <Button
-        android:id="@+id/btn_show_datepicker"
+        android:id="@+id/btn_show_datepicker_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -218,7 +217,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
     <EditText
-        android:id="@+id/edt_bill_title"
+        android:id="@+id/edt_bill_title_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -228,5 +227,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

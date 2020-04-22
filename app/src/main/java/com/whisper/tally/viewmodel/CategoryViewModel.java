@@ -3,9 +3,11 @@ package com.whisper.tally.viewmodel;
 import android.app.Application;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.room.Room;
 
@@ -19,7 +21,7 @@ import java.util.List;
 public class CategoryViewModel extends AndroidViewModel {
     public MyDataBase myDataBase;
     public CategoryDao categoryDao;
-    public LiveData<List<Category>> allCategories;
+    public LiveData<List<Category>> allCategories=new MutableLiveData<>();
 
     public LiveData<List<Category>> getAllCategories() {
         return  allCategories;
@@ -30,7 +32,9 @@ public class CategoryViewModel extends AndroidViewModel {
         super(application);
         myDataBase = MyDataBase.getInstance(application);
         categoryDao = myDataBase.getCategoryDao();
+       // allCategories=new MutableLiveData<>();
         allCategories=  categoryDao.getAllCategories();
+        Log.d("MYTAG",categoryDao.getAllCategories().toString());
     //categoryDao.getAllCategories();
     }
 

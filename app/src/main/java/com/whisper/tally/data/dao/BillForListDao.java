@@ -1,6 +1,5 @@
 package com.whisper.tally.data.dao;
 
-
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -12,8 +11,9 @@ import com.whisper.tally.data.entity.Bill;
 
 import java.util.List;
 
+
 @Dao
-public interface BillDao {
+public interface BillForListDao {
     @Insert
     void insertBills(Bill... bills);
     @Update
@@ -23,9 +23,9 @@ public interface BillDao {
     @Query("DELETE FROM Bill")
     void deleteAllBills();
     @Query("SELECT * FROM Bill ORDER BY ID ")
-    LiveData<List<Bill>> getAllBills();
+    List<Bill> getAllBills();
     @Query("SELECT * From Bill WHERE type=:type")
-    LiveData<List<Bill>> getAllBillsByType(int type);
+    List<Bill> getAllBillsByType(int type);
     @Query("SELECT * From Bill WHERE category=:category")
     List<Bill> getAllBillsByCategory(String category);
     @Query("SELECT * From Bill WHERE timeFormated=:timeFormated")
