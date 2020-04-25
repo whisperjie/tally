@@ -23,7 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="账号" />
+            android:gravity="center"
+            android:text="账号"
+             />
 
         <EditText
             android:id="@+id/input_name"
@@ -34,7 +36,8 @@
             android:ems="10"
             android:hint="please input a name "
             android:inputType="textPersonName"
-            android:text="默认用户" />
+            android:text="默认用户"
+            />
 
     </LinearLayout>
 
@@ -54,7 +57,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="密码" />
+            android:gravity="center"
+            android:text="密码"
+            />
 
         <EditText
             android:id="@+id/input_password"
@@ -64,7 +69,8 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="please input a password "
-            android:inputType="numberPassword" />
+            android:inputType="numberPassword"
+            />
 
     </LinearLayout>
 

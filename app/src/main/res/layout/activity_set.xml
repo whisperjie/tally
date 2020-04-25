@@ -5,22 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.SetActivity"
+
     android:orientation="vertical">
 
 
     <Button
-        android:id="@+id/btn_to_catedory"
+        android:id="@+id/btn_to_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
+        android:background="#00000000"
         android:text="分类管理" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_to_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:text="账单管理" />
+        android:background="#00000000"
+        android:text="用户管理" />
 
 
 </LinearLayout>

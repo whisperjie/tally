@@ -18,6 +18,7 @@ import com.whisper.tally.data.database.CategoryDatabase;
 import com.whisper.tally.data.database.MyDataBase;
 import com.whisper.tally.data.entity.Bill;
 
+import java.util.Date;
 import java.util.List;
 
 /*
@@ -32,10 +33,17 @@ public class BillViewModel extends AndroidViewModel {
     public LiveData<List<Bill>> allBills;
     public LiveData<List<Bill>> incomeBills;
     public LiveData<List<Bill>> expendBills;
+    public LiveData<List<Bill>> billsForTimeFormated;
+    public LiveData<List<Bill>> billsBillsForTime;
     public LiveData<List<Bill>> categoryBills;
     public static MutableLiveData<Double> sum;
     public static MutableLiveData<Double> income;
     public static MutableLiveData<Double> expend;
+
+    public LiveData<List<Bill>> getBillsForTimeFormated(String timeFormated) {
+        billsForTimeFormated = billDao.getAllBillsByTimeFormated(timeFormated);
+        return billsForTimeFormated;
+    }
 
     public BillViewModel(@NonNull Application application) {
         super(application);
@@ -49,6 +57,9 @@ public class BillViewModel extends AndroidViewModel {
         income = new MutableLiveData<>();
         expend = new MutableLiveData<>();
         sum = new MutableLiveData<>();
+        billsForTimeFormated = new MutableLiveData<>();
+        billsBillsForTime=new MutableLiveData<>();
+
         /*if (income==null){
             income=new MutableLiveData<>();
             income.setValue(0.0);
@@ -106,6 +117,11 @@ public class BillViewModel extends AndroidViewModel {
 
     }
 
+    public LiveData<List<Bill>> getBillsBillsForTime(Date date) {
+        billsBillsForTime=billDao.getAllBillsByTime(date);
+        return billsBillsForTime;
+    }
+
     public void update() {
         double incomeNum = 0.0;
         MyDataBase myDataBase = MyDataBase.getInstance(getApplication());
@@ -116,14 +132,14 @@ public class BillViewModel extends AndroidViewModel {
         }
 
         income.setValue(incomeNum);
-        Log.d("MYTAG", income.getValue().toString());
+        // Log.d("MYTAG", income.getValue().toString());
         double expendNum = 0.0;
         List<Bill> expendList = billForListDao.getAllBillsByType(0);
         for (Bill b : expendList) {
             expendNum += b.value;
         }
         expend.setValue(expendNum);
-        Log.d("MYTAG", expend.getValue().toString());
+        // Log.d("MYTAG", expend.getValue().toString());
         sum.setValue(income.getValue() - expend.getValue());
     }
 

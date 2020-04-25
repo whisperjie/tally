@@ -10,6 +10,7 @@ import androidx.room.Update;
 
 import com.whisper.tally.data.entity.Bill;
 
+import java.util.Date;
 import java.util.List;
 
 @Dao
@@ -22,12 +23,14 @@ public interface BillDao {
     void deleteBills(Bill... bills);
     @Query("DELETE FROM Bill")
     void deleteAllBills();
-    @Query("SELECT * FROM Bill ORDER BY ID ")
+    @Query("SELECT * FROM Bill ORDER BY time DESC")
     LiveData<List<Bill>> getAllBills();
-    @Query("SELECT * From Bill WHERE type=:type")
+    @Query("SELECT * From Bill WHERE type=:type ORDER BY time DESC")
     LiveData<List<Bill>> getAllBillsByType(int type);
-    @Query("SELECT * From Bill WHERE category=:category")
+    @Query("SELECT * From Bill WHERE category=:category ORDER BY time DESC")
     List<Bill> getAllBillsByCategory(String category);
-    @Query("SELECT * From Bill WHERE timeFormated=:timeFormated")
-    List<Bill> getAllBillsByTimeFormated(String timeFormated);
+    @Query("SELECT * From Bill WHERE timeFormated =:timeFormated")
+    LiveData<List<Bill>> getAllBillsByTimeFormated(String timeFormated);
+    @Query("SELECT * From Bill WHERE time=:time")
+    LiveData<List<Bill>> getAllBillsByTime(Date time);
 }

@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".activity.bill.BillAddActivity">
 
+<!--<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="hhhhhh"
+    android:background="#971107"
+    >-->
+
 
     <Button
         android:id="@+id/btn_add_bill"
@@ -98,6 +105,7 @@
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="0"
+        android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/guideline18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
@@ -169,6 +177,7 @@
         android:ems="10"
         android:inputType="text"
         android:text='无'
+        android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
@@ -192,7 +201,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
-        android:text="Button"
+        android:text="选择时间"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.842"
@@ -224,6 +233,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="无"
+        android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/guideline17"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline7"

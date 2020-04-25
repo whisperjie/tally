@@ -42,6 +42,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //设置字体
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+
     // Anko Commons
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
     // Anko Layouts

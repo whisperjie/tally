@@ -69,7 +69,7 @@ public class BillAddActivity extends AppCompatActivity {
                         calendar.set(Calendar.MONTH,month);
                         calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
                         bill.time=new Date(year-1900,month,dayOfMonth);//为什么要减1900
-                        tevDate.setText(year+"-"+(month+1)+"-"+dayOfMonth);
+                        tevDate.setText(year+"/"+(month+1)+"/"+dayOfMonth);
 
                     }
                 },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));

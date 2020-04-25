@@ -3,13 +3,15 @@
     package="com.whisper.tally">
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.bill.BillDetialActivity"></activity>
+        android:theme="@style/AppTheme" >
+        <activity android:name=".activity.bill.QueryActivity"></activity>
+        <activity android:name=".activity.bill.BillDetialActivity" />
         <activity android:name=".activity.SortActivity" />
         <activity android:name=".activity.bill.ShowActivity" />
         <activity android:name=".activity.bill.BillAddActivity" />
@@ -26,6 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>

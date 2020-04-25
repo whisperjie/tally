@@ -15,11 +15,20 @@ public class SetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set);
-        Button mBtnToCategory=findViewById(R.id.btn_to_catedory);
+        Button mBtnToCategory=findViewById(R.id.btn_to_category);
+        Button mBtnToUser=findViewById(R.id.btn_to_user);
         mBtnToCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(SetActivity.this,CategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+        //Button mBtn=findViewById(R.id.btn_to_category);
+        mBtnToUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SetActivity.this,InfoActivity.class);
                 startActivity(intent);
             }
         });

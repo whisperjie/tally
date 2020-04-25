@@ -55,7 +55,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 } else {
                     String correctPassword = userData.password;
                     if (correctPassword.equals(iptPassword)) {
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
                     } else {
                         Toast.makeText(this, "密码错误", Toast.LENGTH_LONG).show();
                     }
@@ -63,7 +65,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
             break;
             case R.id.btn_login_default: {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                // 清楚堆栈
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                startActivity(intent);
             }
             break;
         }
