@@ -25,6 +25,7 @@ public class PieView extends View {
     public ArrayList<PieData> mData;
     public int mWidth, mHeight;
     public Paint mPaint = new Paint();
+    float sumAngle=0f;
 
     public PieView(Context context) {
         //super(context);
@@ -69,30 +70,34 @@ public class PieView extends View {
 
     public void setmData(ArrayList<PieData> mData) {
         this.mData = mData;
-        initDate(mData);
+        initDate(this.mData);
         invalidate();
     }
 
     private void initDate(ArrayList<PieData> mData) {
+        Log.d("MYTAG",mData.toString());
         if (null == mData || mData.size() == 0) {
             return;
         }
-        float sumValue = 0;
+        float sumValue = 0.0f;
         for (int i = 0; i < mData.size(); i++) {
             PieData pie=mData.get(i);
             sumValue+=pie.getValue(); //计算数值和
             int j=i%mColor.length;
             pie.setColor(mColor[j]); //设置颜色
         }
-        float sumAngle=0;
+        Log.d("MYTAG>>sum", String.valueOf(sumValue));
         for (int i=0;i<mData.size();i++){
             PieData pie=mData.get(i);
             float percentage=pie.getValue()/sumValue;
             float angle=percentage*360; //计算角度
-            pie.setPercentage(angle);
+            pie.setPercentage(percentage);
+            pie.setAngle(angle);
+            Log.i("MYTAG>>percentage",">>>>>>>>>>>PIE"+pie.getPercentage());
             sumAngle+=angle;
-            Log.i("angle",""+pie.getAngle());
+            Log.i("MYTAG>>angle",">>>>>>>>>>>PIE"+pie.getAngle());
         }
+        Log.d("MYTAG",mData.toString());
     }
 
 }

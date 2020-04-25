@@ -21,6 +21,17 @@ public class PieData {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "PieData{" +
+                "name='" + name + '\'' +
+                ", value=" + value +
+                ", percentage=" + percentage +
+                ", color=" + color +
+                ", angle=" + angle +
+                '}';
+    }
+
     public void setName(String name) {
         this.name = name;
     }

@@ -36,9 +36,9 @@ public class BillViewModel extends AndroidViewModel {
     public LiveData<List<Bill>> billsForTimeFormated;
     public LiveData<List<Bill>> billsBillsForTime;
     public LiveData<List<Bill>> categoryBills;
-    public static MutableLiveData<Double> sum;
-    public static MutableLiveData<Double> income;
-    public static MutableLiveData<Double> expend;
+    public static MutableLiveData<Float> sum;
+    public static MutableLiveData<Float> income;
+    public static MutableLiveData<Float> expend;
 
     public LiveData<List<Bill>> getBillsForTimeFormated(String timeFormated) {
         billsForTimeFormated = billDao.getAllBillsByTimeFormated(timeFormated);
@@ -123,7 +123,7 @@ public class BillViewModel extends AndroidViewModel {
     }
 
     public void update() {
-        double incomeNum = 0.0;
+        float incomeNum = 0.0f;
         MyDataBase myDataBase = MyDataBase.getInstance(getApplication());
         BillForListDao billForListDao = myDataBase.getBillForListDao();
         List<Bill> incomeList = billForListDao.getAllBillsByType(1);
@@ -133,7 +133,7 @@ public class BillViewModel extends AndroidViewModel {
 
         income.setValue(incomeNum);
         // Log.d("MYTAG", income.getValue().toString());
-        double expendNum = 0.0;
+        float expendNum = 0.0f;
         List<Bill> expendList = billForListDao.getAllBillsByType(0);
         for (Bill b : expendList) {
             expendNum += b.value;
@@ -143,15 +143,15 @@ public class BillViewModel extends AndroidViewModel {
         sum.setValue(income.getValue() - expend.getValue());
     }
 
-    public LiveData<Double> getSum() {
+    public LiveData<Float> getSum() {
         return sum;
     }
 
-    public LiveData<Double> getIncome() {
+    public LiveData<Float> getIncome() {
         return income;
     }
 
-    public LiveData<Double> getExpend() {
+    public LiveData<Float> getExpend() {
         return expend;
     }
 
